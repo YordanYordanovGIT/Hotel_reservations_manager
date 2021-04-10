@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "User Registration";
+}
+@model Hotel_reservations_manager.Models.ViewModels.RegisterModel
+
+<h1 class="text-center">Register</h1>
+<hr class="bg-secondary half-width" />
+
+<partial name="FormErrors" model="Model" />
+
+<form class="mx-auto half-width" asp-controller="Users" asp-action="Register" method="post">
+    <div class="form-group">
+        <label asp-for="Username">Username</label>
+        <input asp-for="Username" type="text" class="form-control" id="username" placeholder="Username..." name="username">
+    </div>
+    <div class="form-group">
+        <label asp-for="FirstName">First name</label>
+        <input asp-for="FirstName" type="text" class="form-control" id="firstName" placeholder="First Name..." name="firstName">
+    </div>
+    <div class="form-group">
+        <label asp-for="MiddleName">Middle name</label>
+        <input asp-for="MiddleName" type="text" class="form-control" id="middleName" placeholder="Middle Name..." name="middleName">
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName">Last name</label>
+        <input asp-for="LastName" type="text" class="form-control" id="lastName" placeholder="Last Name..." name="lastName">
+    </div>
+    <div class="form-group">
+        <label asp-for="PersonalID">Personal ID</label>
+        <input asp-for="PersonalID" type="text" class="form-control" id="personalId" placeholder="Personal ID..." name="personalId">
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber">Phone number</label>
+        <input asp-for="PhoneNumber" type="tel" class="form-control" id="phoneNumber" placeholder="Phone number..." name="phoneNumber">
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="email" class="form-control" id="email" placeholder="Email..." name="email">
+    </div>
+    <div class="form-group">
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" type="password" class="form-control" id="password" placeholder="Password..." name="password">
+    </div>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword">Confirm Password</label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password..." name="confirmPassword">
+    </div>
+    <div class="form-check">
+        <input asp-for="IsAdmin" type="checkbox" class="form-check-input" value="true" id="isAdmin" name="isAdmin">
+        <label asp-for="IsAdmin" class="form-check-label" for="isAdmin">Administrator rights</label>
+    </div>
+    <div class="button-holder d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+</form>
