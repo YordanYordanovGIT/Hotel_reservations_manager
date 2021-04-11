@@ -7827,11 +7827,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DAN\\Programming\\Projects\\IT Kariera\\Module 13\\Proekt\\Hotel_reservations_manager\\Hotel_reservations_manager\\Hotel_reservations_manager.csproj",
+      "projectUniqueName": "D:\\DAN\\Programming\\Projects\\IT Kariera\\Module 13\\Proekt\\Github\\Hotel_reservations_manager\\Hotel_reservations_manager\\Hotel_reservations_manager\\Hotel_reservations_manager.csproj",
       "projectName": "Hotel_reservations_manager",
-      "projectPath": "D:\\DAN\\Programming\\Projects\\IT Kariera\\Module 13\\Proekt\\Hotel_reservations_manager\\Hotel_reservations_manager\\Hotel_reservations_manager.csproj",
+      "projectPath": "D:\\DAN\\Programming\\Projects\\IT Kariera\\Module 13\\Proekt\\Github\\Hotel_reservations_manager\\Hotel_reservations_manager\\Hotel_reservations_manager\\Hotel_reservations_manager.csproj",
       "packagesPath": "C:\\Users\\jormi\\.nuget\\packages\\",
-      "outputPath": "D:\\DAN\\Programming\\Projects\\IT Kariera\\Module 13\\Proekt\\Hotel_reservations_manager\\Hotel_reservations_manager\\obj\\",
+      "outputPath": "D:\\DAN\\Programming\\Projects\\IT Kariera\\Module 13\\Proekt\\Github\\Hotel_reservations_manager\\Hotel_reservations_manager\\Hotel_reservations_manager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jormi\\AppData\\Roaming\\NuGet\\NuGet.Config",

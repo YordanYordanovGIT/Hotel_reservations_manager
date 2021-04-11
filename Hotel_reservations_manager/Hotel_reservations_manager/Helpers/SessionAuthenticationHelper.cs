@@ -21,6 +21,11 @@ namespace Hotel_reservations_manager.Helpers
             _session.SetInt32("userId", user.Id);
         }
 
+        public void Logout()
+        {
+            _session.Clear();
+        }
+
         public User RetrieveFromSession()
         {
             var userId = _session.GetInt32("userId");
@@ -44,6 +49,12 @@ namespace Hotel_reservations_manager.Helpers
         {
             var user = this.RetrieveFromSession();
             return user != null && user.Role == role;
+        }
+
+        public bool IsAdminAndActive()
+        {
+            var user = this.RetrieveFromSession();
+            return user != null && user.Active && (user.Role == Role.Admin || user.Role == Role.HeadAdmin);
         }
     }
 }

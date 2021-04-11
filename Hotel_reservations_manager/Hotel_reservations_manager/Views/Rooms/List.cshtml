@@ -1,0 +1,47 @@
+﻿@using Hotel_reservations_manager.Models.Rooms
+@model Hotel_reservations_manager.Models.Rooms.RoomsViewModel
+
+@{ ViewData["Title"] = "Rooms"; }
+
+<h1>Rooms</h1>
+
+@if (Model.IsAdmin){
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+}
+
+<div class="card-columns">
+    @foreach (Room item in Model.Items)
+    {
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="https://i.pinimg.com/originals/b6/aa/91/b6aa915a8af1139561f0b9ec24a2e5af.jpg" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">Room: @Html.DisplayFor(modelItem => item.Number)</h5>
+        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">@Html.DisplayFor(modelItem => item.Type)</li>
+        <li class="list-group-item">Capacity: @Html.DisplayFor(modelItem => item.Capacity)</li>
+        <li class="list-group-item">@Html.DisplayFor(modelItem => item.Price) лв.</li>
+    </ul>
+    <div class="card-body">
+        @if (Model.IsAdmin)
+        {
+            <a asp-action="Edit" asp-route-id="@item.Id" class="card-link">Edit</a><br><br>}
+        <a asp-action="Reserve" asp-controller="Reservations" asp-route-id="@item.Id" class="btn btn-primary">Reserve</a>
+        @if (Model.IsAdmin)
+        {
+            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>}
+    </div>
+</div>}
+</div>
+<ul class="pagination">
+    @for (var i = 1; i <= Model.Pager.PagesCount; i++)
+    {
+<li class="page-item @(i == Model.Pager.CurrentPage ? "active" : "")">
+    <a asp-route-Pager.CurrentPage="@i" class="page-link">@i</a>
+</li>
+}
+</ul>
+

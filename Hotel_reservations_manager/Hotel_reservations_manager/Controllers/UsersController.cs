@@ -18,6 +18,12 @@ namespace Hotel_reservations_manager.Controllers
             return authHelper.IsUserAuthenticated();
         }
 
+        private void _logout()
+        {
+            IAuthenticationHelper authHelper = new SessionAuthenticationHelper(HttpContext.Session);
+            authHelper.Logout();
+        }
+
         [HttpGet]
         public IActionResult Register()
         {
@@ -54,6 +60,17 @@ namespace Hotel_reservations_manager.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        public IActionResult Logout()
+        {
+            if (!IsUserAuthenticated())
+                return Redirect("/Users/Login");
+
+            _logout();
+            return Redirect("/");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Login(LoginModel model)
         {
             if (IsUserAuthenticated())
@@ -77,7 +94,5 @@ namespace Hotel_reservations_manager.Controllers
             }
             return View(model);
         }
-
-
     }
 }

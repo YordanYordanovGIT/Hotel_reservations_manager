@@ -23,6 +23,7 @@ namespace Hotel_reservations_manager.Models.ViewModels
         public string ConfirmPassword { get; set; }
         [DisplayName("Email")]
         [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Invalid email")]
         [Required]
         public string Email { get; set; }
         [DisplayName("First Name")]

@@ -1,0 +1,53 @@
+﻿@using Hotel_reservations_manager.Models
+@model Hotel_reservations_manager.Models.Rooms.RoomsCreateModel
+
+@{ ViewData["Title"] = "Create"; }
+
+<h1>Create</h1>
+
+<h4>Room</h4>
+<hr />
+<partial name="FormErrors" model="Model" />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" asp-controller="Rooms" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Number">Room number</label>
+                <input asp-for="Number" type="number" class="form-control" id="number" placeholder="Room number..." name="number" min="1" value="0">
+            </div>
+            <div class="form-group">
+                <label asp-for="Capacity">Capacity</label>
+                <input asp-for="Capacity" type="number" class="form-control" id="capacity" placeholder="Capacity..." name="capacity" min="1" value="0">
+            </div>
+            <div class="form-group">
+                <label asp-for="Price">Price</label>
+                <input asp-for="Price" type="number" class="form-control" placeholder="Price..." name="price" min="1" value="0" step=".01">
+            </div>
+            <div class="form-group">
+                <label asp-for="Description">Description</label>
+                <input asp-for="Description" type="text" class="form-control" id="description" placeholder="Description..." name="description">
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                @Html.DropDownList("Type", Html.GetEnumSelectList<RoomType>(), new { @class = "form-control" })
+            </div>
+            <div class="form-check">
+                <input asp-for="IsFree" type="checkbox" class="form-check-input" value="true" id="isFree" name="isFree">
+                <label asp-for="IsFree" class="form-check-label" for="isFree">Is occupied</label>
+            </div>
+            <div class="button-holder d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

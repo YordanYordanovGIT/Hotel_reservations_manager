@@ -11,6 +11,8 @@ namespace Hotel_reservations_manager.Helpers
         public void SaveState(User user);
         public User RetrieveFromSession();
         public bool IsUserAuthenticated();
+        public bool IsAdminAndActive();
+        public void Logout();
         public bool IsUserInRole(Role role);
     }
 }

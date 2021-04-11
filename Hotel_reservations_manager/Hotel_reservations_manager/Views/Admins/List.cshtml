@@ -1,0 +1,36 @@
+﻿@using Hotel_reservations_manager.Models.Admins
+@model Hotel_reservations_manager.Models.Admins.AdminsViewModel
+
+@{ ViewData["Title"] = "Admins"; }
+
+<h1>Admins</h1>
+
+<div class="card-columns">
+    @foreach (User item in Model.Items)
+    {
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Username)</h5>
+        <p class="card-text">@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Email: @Html.DisplayFor(modelItem => item.Email)</li>
+        <li class="list-group-item">Phone number: @Html.DisplayFor(modelItem => item.PhoneNumber)</li>
+    </ul>
+    <div class="card-body">
+        <a asp-action="Edit" asp-route-id="@item.Id" class="card-link">Edit</a><br><br>
+        @if (!item.Active)
+        {
+            <a asp-action="Activate" asp-route-id="@item.Id" class="btn btn-success">Activate</a>
+        }
+        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+    </div>
+</div>}
+</div>
+<ul class="pagination">
+    @for (var i = 1; i <= Model.Pager.PagesCount; i++)
+    {
+<li class="page-item @(i == Model.Pager.CurrentPage ? "active" : "")">
+    <a asp-route-Pager.CurrentPage="@i" class="page-link">@i</a>
+</li>}
+</ul>

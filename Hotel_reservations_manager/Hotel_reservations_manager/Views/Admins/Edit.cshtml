@@ -1,0 +1,69 @@
+﻿@using Hotel_reservations_manager.Models
+@model Hotel_reservations_manager.Models.Admins.AdminsEditModel
+
+@{ ViewData["Title"] = "Edit"; }
+
+<h1>Edit</h1>
+
+<h4>Admin</h4>
+<hr />
+<partial name="FormErrors" model="Model" />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" asp-controller="Admins" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-check">
+                <input asp-for="Active" type="checkbox" class="form-check-input" value="true" id="Active" name="Active">
+                <label asp-for="Active" class="form-check-label" for="Active">Profile active</label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username">Username</label>
+                <input asp-for="Username" type="text" class="form-control" id="username" placeholder="Username..." name="username">
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName">First name</label>
+                <input asp-for="FirstName" type="text" class="form-control" id="firstName" placeholder="First Name..." name="firstName">
+            </div>
+            <div class="form-group">
+                <label asp-for="MiddleName">Middle name</label>
+                <input asp-for="MiddleName" type="text" class="form-control" id="middleName" placeholder="Middle Name..." name="middleName">
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName">Last name</label>
+                <input asp-for="LastName" type="text" class="form-control" id="lastName" placeholder="Last Name..." name="lastName">
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonalID">Personal ID</label>
+                <input asp-for="PersonalID" type="text" class="form-control" id="personalId" placeholder="Personal ID..." name="personalId">
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber">Phone number</label>
+                <input asp-for="PhoneNumber" type="tel" class="form-control" id="phoneNumber" placeholder="Phone number..." name="phoneNumber">
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" type="email" class="form-control" id="email" placeholder="Email..." name="email">
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" type="password" class="form-control" id="password" placeholder="Password..." name="password">
+            </div>
+            <div style="visibility:hidden;">
+                <input asp-for="Role" class="form-check-input" id="isActive" name="isActive">
+                @Html.DropDownList("Role", Html.GetEnumSelectList<Role>(), new { @class = "form-control" })
+            </div>
+            <div class="button-holder d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

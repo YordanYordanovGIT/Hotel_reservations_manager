@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yMhg3EG+zkemFtZBf2U8MolHC3OWMjB6KE2nD8qpazdo5BuxiMlEdrVF1qnkyn7Q/lGsOkONC3wX0Ke/WVGdXw==",
+  "dgSpecHash": "rWfwdkZNKWPPWSqtrDNmt+2tP89auZq0Z/RLh87J2jVp/JlHsKo0lreM5DmCat/+kVrkNd6q4PpW07Ruv0pfKw==",
   "success": true,
-  "projectFilePath": "D:\\DAN\\Programming\\Projects\\IT Kariera\\Module 13\\Proekt\\Hotel_reservations_manager\\Hotel_reservations_manager\\Hotel_reservations_manager.csproj",
+  "projectFilePath": "D:\\DAN\\Programming\\Projects\\IT Kariera\\Module 13\\Proekt\\Github\\Hotel_reservations_manager\\Hotel_reservations_manager\\Hotel_reservations_manager\\Hotel_reservations_manager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jormi\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\jormi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

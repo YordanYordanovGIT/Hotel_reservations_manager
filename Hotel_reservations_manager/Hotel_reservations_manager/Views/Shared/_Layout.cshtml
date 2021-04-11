@@ -1,4 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@using System.Text
+@{
+    bool auth = false;
+    var session = 0;
+    var _session = Context.Session;
+    byte[] userId = null;
+    _session.TryGetValue("userId", out userId);
+    if (userId != null && userId.Length > 0)
+        auth = true;
+    if(auth)
+        BitConverter.ToInt32(userId, session);
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,12 +37,35 @@
                             <a class="nav-link nav-link-white" asp-action="Index" asp-controller="Home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-white" asp-action="Login" asp-controller="Users">Login</a>
+                            <a class="nav-link nav-link-white" asp-action="List" asp-controller="Reservations">Reservations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-white" asp-action="Register" asp-controller="Users">Register now</a>
+                            <a class="nav-link nav-link-white" asp-action="List" asp-controller="Rooms">Rooms</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-white" asp-action="List" asp-controller="Admins">Admins</a>
                         </li>
                     </ul>
+                    @if (auth)
+                    {
+                        using (Html.BeginForm("Logout", "Users", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            <ul class="nav navbar-nav navbar-right">
+                                <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-danger">Log out</a>
+                            </ul>
+                        }
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-white" asp-action="Login" asp-controller="Users">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-white" asp-action="Register" asp-controller="Users">Register now</a>
+                            </li>
+                        </ul>
+                    }
                 </div>
             </div>
         </nav>
